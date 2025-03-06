@@ -2,20 +2,6 @@
 import './App.css'
 import teamsData from './CollegeBasketballTeams.json'
 
-interface TeamProps {
-  tid: number;
-  cid: number;
-  did: number;
-  school: string;
-  name: string;
-  abbrev: string;
-  pop: number;
-  city: string;
-  state: string;
-  latitude: number;
-  longitude: number;
-}
-
 function Welcome() {
   return (
     <>
@@ -25,7 +11,7 @@ function Welcome() {
   )
 }
 
-function Team({school, name, city, state} : TeamProps){
+function Team({school, name, city, state} : {school:string; name: string; city: string; state: string}){
 
   return(
     <>
@@ -43,7 +29,7 @@ function TeamList(){
     <>
     {
       
-      teamsData.teams.map((singleTeam: TeamProps) => (
+      teamsData.teams.map((singleTeam) => (
         <Team {...singleTeam} />
       ))
     }
